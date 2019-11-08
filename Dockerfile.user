@@ -22,4 +22,4 @@ RUN go get -u google.golang.org/grpc
 # build synerex daemon
 WORKDIR /go/src/github.com/synerex/provider/provider_rpa/user
 
-EXPOSE 10080
+EXPOSE 8888
