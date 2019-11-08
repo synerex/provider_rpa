@@ -13,3 +13,5 @@
 
 # Go module file
 go.sum
+
+.vscode
