@@ -5,10 +5,10 @@ services:
     tty: true
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.user
     image: rpa_user_provider
     volumes:
-      - .:/go/src/github.com/synerex/provider/rpa/user/rpa-user-provider
+      - ./user:/go/src/github.com/synerex/provider/provider_rpa/user
     ports:
       - "8888:8888"
     networks:
@@ -18,12 +18,10 @@ services:
     tty: true
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.meeting
     image: meeting_provider
     volumes:
-      - .:/go/src/github.com/synerex/provider/rpa/meeting/meeting-provider
-    # ports:
-    #   - "8888:8888"
+      - .:/go/src/github.com/synerex/provider/provider_rpa/meeting
     networks:
       - synerex_net
       - default
