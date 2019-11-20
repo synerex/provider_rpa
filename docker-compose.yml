@@ -9,6 +9,7 @@ services:
     image: rpa_user_provider
     volumes:
       - ./user:/go/src/github.com/synerex/provider/provider_rpa/user
+      - ./entrypoint-user.sh:/go/src/github.com/synerex/provider/provider_rpa/user/entrypoint-user.sh
     ports:
       - "8888:8888"
     networks:
@@ -22,6 +23,7 @@ services:
     image: meeting_provider
     volumes:
       - .:/go/src/github.com/synerex/provider/provider_rpa/meeting
+      - ./entrypoint-meeting.sh:/go/src/github.com/synerex/provider/provider_rpa/meeting/entrypoint-meeting.sh
     networks:
       - synerex_net
       - default
