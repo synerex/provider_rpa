@@ -2,7 +2,7 @@ FROM golang:1.13.0-buster
 
 WORKDIR /go/src
 
-# add apt dependencies 
+# add apt dependencies
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
 # install tools
@@ -21,3 +21,8 @@ RUN go get -u google.golang.org/grpc
 
 # build synerex daemon
 WORKDIR /go/src/github.com/synerex/provider/provider_rpa/meeting
+COPY . .
+RUN sed -i 's/\r//' ./entrypoint-meeting.sh
+RUN chmod +x ./entrypoint-meeting.sh
+
+ENTRYPOINT [ "./entrypoint-meeting.sh" ]
