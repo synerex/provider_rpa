@@ -4,29 +4,25 @@ services:
   rpa_user_provider:
     tty: true
     build:
-      context: .
-      dockerfile: Dockerfile.user
+      context: ./user
+      dockerfile: Dockerfile
     image: rpa_user_provider
     volumes:
       - ./user:/go/src/github.com/synerex/provider/provider_rpa/user
-      - ./entrypoint-user.sh:/go/src/github.com/synerex/provider/provider_rpa/user/entrypoint-user.sh
     ports:
       - "8888:8888"
     networks:
       - synerex_net
-      - default
   meeting_provider:
     tty: true
     build:
-      context: .
-      dockerfile: Dockerfile.meeting
+      context: ./meeting
+      dockerfile: Dockerfile
     image: meeting_provider
     volumes:
-      - .:/go/src/github.com/synerex/provider/provider_rpa/meeting
-      - ./entrypoint-meeting.sh:/go/src/github.com/synerex/provider/provider_rpa/meeting/entrypoint-meeting.sh
+      - ./meeting:/go/src/github.com/synerex/provider/provider_rpa/meeting
     networks:
       - synerex_net
-      - default
 networks:
   synerex_net:
     external: true
