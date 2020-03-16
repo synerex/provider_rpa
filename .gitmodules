@@ -4,6 +4,3 @@
 [submodule "meeting"]
 	path = meeting
 	url = https://github.com/synerex/rpa_meeting.git
-[submodule "selenium"]
-	path = selenium
-	url = https://github.com/synerex/rpa_selenium.git
